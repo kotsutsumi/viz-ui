@@ -1,0 +1,35 @@
+name: Publish GitHub Pages
+
+on:
+    push:
+
+permissions:
+    contents: write
+
+jobs:
+    publish-gh-pages:
+        runs-on:
+            - ubuntu-latest
+
+        steps:
+            - name: Check out Git repository
+              uses: actions/checkout@v4
+
+            - name: Install Node.js, NPM and Yarn
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 20.17.0
+
+            - name: Build Site
+              run: |
+                  cd example
+                  npm i
+                  npm run build
+
+            - name: Push gh-pages branch
+              uses: peaceiris/actions-gh-pages@v4
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  publish_dir: ./exsample/dist
+                  user_name: kotsutsumi
+                  user_email: kotsutsumi@gmail.com
