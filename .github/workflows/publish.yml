@@ -1,4 +1,4 @@
-name: Publish GitHub Pages
+name: Publish GitHub Pages and NPM
 
 on:
     push:
@@ -32,6 +32,6 @@ jobs:
               uses: peaceiris/actions-gh-pages@v4
               with:
                   github_token: ${{ secrets.GITHUB_TOKEN }}
-                  publish_dir: ./exsample/dist
+                  publish_dir: ./example/dist
                   user_name: kotsutsumi
                   user_email: kotsutsumi@gmail.com
