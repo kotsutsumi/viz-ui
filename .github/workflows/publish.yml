@@ -27,11 +27,12 @@ jobs:
                   cd example
                   npm i
                   npm run build
+                  mv example/dist docs
 
             - name: Push gh-pages branch
               uses: peaceiris/actions-gh-pages@v4
               with:
                   github_token: ${{ secrets.GITHUB_TOKEN }}
-                  publish_dir: ./example/dist
+                  publish_dir: ./docs
                   user_name: kotsutsumi
                   user_email: kotsutsumi@gmail.com
