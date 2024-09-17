@@ -10,12 +10,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@kotsutsumi/viz-ui": "file:../",
+    "@tanstack/react-router": "^1.57.17",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "@kotsutsumi/viz-ui": "file:../"
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
+    "@tanstack/router-vite-plugin": "^1.57.15",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react-swc": "^3.5.0",
