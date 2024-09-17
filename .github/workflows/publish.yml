@@ -29,10 +29,22 @@ jobs:
                   npm run build
                   cd
 
-            - name: Push gh-pages branch
-              uses: peaceiris/actions-gh-pages@v4
+            - uses: actions/upload-artifact@v3
               with:
-                  github_token: ${{ secrets.GITHUB_TOKEN }}
-                  publish_dir: ./example/dist
-                  user_name: kotsutsumi
-                  user_email: kotsutsumi@gmail.com
+                  path: example/dist
+            - uses: actions/upload-pages-artifact@v1
+              with:
+                  path: example/dist
+
+    deploy:
+        needs: build
+        runs-on: ubuntu-latest 
+        environment:
+            name: github-pages
+            url: ${{ steps.deployment.outputs.page_url }}
+        permissions:
+            pages: write
+            id-token: write
+        steps:
+            - uses: actions/deploy-pages@v1
+            id: deployment
