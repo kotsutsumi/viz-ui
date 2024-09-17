@@ -27,7 +27,6 @@ jobs:
                   cd example
                   npm i
                   npm run build
-                  cd
 
             - name: Push gh-pages branch
               uses: peaceiris/actions-gh-pages@v4
