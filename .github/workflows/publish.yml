@@ -27,7 +27,7 @@ jobs:
                   cd example
                   npm i
                   npm run build
-                  mv example/dist docs
+                  mv dist ../docs
 
             - name: Push gh-pages branch
               uses: peaceiris/actions-gh-pages@v4
