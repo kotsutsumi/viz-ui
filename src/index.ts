@@ -1,1 +1,1 @@
-export { IconPicker } from './components/IconPicker';
+export { Button } from './components/button';
