@@ -1,0 +1,52 @@
+{
+  "name": "viz-ui",
+  "version": "0.0.1",
+  "description": "React UI components library",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "types": "dist/types/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kotsutsumi/viz-ui"
+  },
+  "homepage": "https://viz-ui.com",
+  "scripts": {
+    "prebuild": "shx rm -rf dist",
+    "postbuild": "",
+    "build": "npm run prebuild && rollup -c",
+    "watch": "rollup -c --watch",
+    "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
+    "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,json,css,scss,md}'"
+  },
+  "keywords": [
+    "react",
+    "component"
+  ],
+  "author": "Kazuhiro Kotsutsumi",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tslib": "^2.7.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^26.0.1",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@types/react": "^18.3.7",
+    "@types/react-dom": "^18.3.0",
+    "prettier": "^3.3.3",
+    "rollup": "^2.79.1",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "shx": "^0.3.4",
+    "typescript": "^5.6.2"
+  },
+  "overrides": {
+    "glob": "9.0.0",
+    "rimraf": "^4.0.0"
+  }
+}
