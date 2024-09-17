@@ -22,6 +22,8 @@ jobs:
 
             - name: Build Site
               run: |
+                  npm i
+                  npm run build
                   cd example
                   npm i
                   npm run build
