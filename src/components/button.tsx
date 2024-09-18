@@ -1,4 +1,11 @@
-import { ButtonHTMLAttributes, forwardRef, MutableRefObject, useState } from 'react'
+/**
+ * Button - VizUI
+ *
+ * This is a button component for React.
+ *
+ * Kazuhiro Kotsutsumi<kotsutsumi@gmail.com>
+ */
+import { ButtonHTMLAttributes, forwardRef, MutableRefObject, useRef, useState } from 'react'
 import React from 'react'
 import { tv, VariantProps } from 'tailwind-variants'
 
@@ -31,25 +38,27 @@ const buttonVariants = tv({
                 text-muted-foreground
                 border
             `,
+            primary: `
+                bg-primary
+                hover:bg-primary/80
+                text-primary-foreground
+            `,
+            secondary: `
+                bg-secondary
+                hover:bg-secondary/80
+                text-secondary-foreground
+            `,
             destructive: `
                 bg-destructive
                 hover:bg-destructive/90
                 text-destructive-foreground
-            `
-            /*
+            `,
             outline: `
                 bg-background
                 border
                 border-input
                 hover:bg-accent
                 hover:text-accent-foreground
-                shadow-sm
-            `,
-            secondary: `
-                bg-secondary
-                hover:bg-secondary/80
-                shadow-sm
-                text-secondary-foreground
             `,
             ghost: `
                 hover:bg-accent
@@ -60,30 +69,25 @@ const buttonVariants = tv({
                 text-primary
                 underline-offset-4
             `
-            */
         },
         size: {
             default: `
                 h-9
                 px-4
                 py-2
-            `
-            /*
+            `,
             sm: `
-                h-8
-                px-3
-                rounded-md
+                h-6
+                px-2
                 text-xs
             `,
             lg: `
                 h-10
                 px-8
-                rounded-md
             `,
             icon: `
                 size-9
             `
-            */
         }
     },
     defaultVariants: {
@@ -97,9 +101,9 @@ export interface ButtonProps
         VariantProps<typeof buttonVariants> {
     asChild?: boolean
     interval?: number
-    onInterval?: (
-        event: React.MouseEvent<HTMLButtonElement> | React.TouchEvent<HTMLButtonElement>
-    ) => void
+    // onInterval?: (
+    //     event: React.MouseEvent<HTMLButtonElement> | React.TouchEvent<HTMLButtonElement>
+    // ) => void
 }
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -110,7 +114,25 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         const [effectedClassName, setEffectedClassName] = useState('')
 
         // interval id
-        let intervalId: NodeJS.Timeout | undefined
+        let intervalId = useRef<NodeJS.Timeout | undefined>(undefined)
+
+        const getEffectedClassName = () => {
+            if (variant === 'primary') {
+                return 'hover:bg-primary'
+            } else if (variant === 'secondary') {
+                return 'hover:bg-secondary'
+            } else if (variant === 'outline') {
+                return 'hover:bg-transparent'
+            } else if (variant === 'ghost') {
+                return 'hover:bg-transparent'
+            } else if (variant === 'destructive') {
+                return 'hover:bg-destructive'
+            } else if (variant === 'link') {
+                return 'hover:no-underline'
+            }
+
+            return 'hover:bg-gray-200'
+        }
 
         // onClick handler
         const onClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -126,13 +148,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
                 return
             }
 
-            if (intervalId === undefined) {
-                intervalId = setInterval(() => {
-                    if (props.onInterval) {
-                        props.onInterval(event)
-                    } else {
-                        onClick(event as React.MouseEvent<HTMLButtonElement>)
-                    }
+            if (intervalId.current === undefined) {
+                intervalId.current = setInterval(() => {
+                    onClick(event as React.MouseEvent<HTMLButtonElement>)
                 }, interval)
             }
         }
@@ -140,9 +158,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         const stopInterval = (
             event: React.MouseEvent<HTMLButtonElement> | React.TouchEvent<HTMLButtonElement>
         ) => {
-            if (intervalId !== undefined) {
-                clearInterval(intervalId)
-                intervalId = undefined
+            if (intervalId.current !== undefined) {
+                clearInterval(intervalId.current)
+                intervalId.current = undefined
             }
         }
 
@@ -156,7 +174,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             }
 
             // set effected class name
-            setEffectedClassName('hover:bg-gray-200')
+            setEffectedClassName(getEffectedClassName())
         }
 
         // onMouseUp handler
@@ -195,7 +213,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             }
 
             // set effected class name
-            setEffectedClassName('hover:bg-gray-200')
+            setEffectedClassName(getEffectedClassName())
         }
 
         // onTouchEnd handler
