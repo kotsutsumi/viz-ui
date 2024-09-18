@@ -15,6 +15,7 @@ Vite to Next.js SSR, MPA style for github pages.
 ### Button
 
 -   [x] Support LongTap
+-   [] Provide a description of the attribute values
 
 ### Panel
 
