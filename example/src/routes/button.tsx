@@ -275,6 +275,50 @@ export function ButtonDemo() {
                 </div>
             </div>
 
+            {/* Interval */}
+            <div>
+                <h2>Interval</h2>
+                <p>Click and hold to repeat the clicking action.</p>
+
+                <div>
+                    <h3>Basic</h3>
+                    The time to repeat for the <code>interval</code> attribute is in milliseconds.
+                    <div className="code-container">
+                        <Tabs.Root defaultValue="preview">
+                            <Tabs.List className="">
+                                <Tabs.Trigger value="preview">Preview</Tabs.Trigger>
+                                <Tabs.Trigger value="code">Code</Tabs.Trigger>
+                                <Tabs.Indicator />
+                            </Tabs.List>
+                            <Tabs.Content value="preview">
+                                <Button
+                                    interval={100}
+                                    onClick={() => {
+                                        console.log('Clicked!')
+                                    }}
+                                >
+                                    Interval output log
+                                </Button>
+                            </Tabs.Content>
+                            <Tabs.Content value="code">
+                                <pre className="language-javascript">
+                                    <code>{`import { Button } from '@kotsutsumi/viz-ui'
+
+export function ButtonDemo() {
+  return <Button
+    interval={100}
+    onClick={() => {
+      console.log('Clicked!')
+    }}
+  >Interval output log</Button>
+}`}</code>
+                                </pre>
+                            </Tabs.Content>
+                        </Tabs.Root>
+                    </div>
+                </div>
+            </div>
+
             {/* Attributes */}
             <div>
                 <h2>Attributes</h2>

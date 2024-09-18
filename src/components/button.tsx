@@ -5,7 +5,7 @@
  *
  * Kazuhiro Kotsutsumi<kotsutsumi@gmail.com>
  */
-import { ButtonHTMLAttributes, forwardRef, MutableRefObject, useState } from 'react'
+import { ButtonHTMLAttributes, forwardRef, MutableRefObject, useRef, useState } from 'react'
 import React from 'react'
 import { tv, VariantProps } from 'tailwind-variants'
 
@@ -101,9 +101,9 @@ export interface ButtonProps
         VariantProps<typeof buttonVariants> {
     asChild?: boolean
     interval?: number
-    onInterval?: (
-        event: React.MouseEvent<HTMLButtonElement> | React.TouchEvent<HTMLButtonElement>
-    ) => void
+    // onInterval?: (
+    //     event: React.MouseEvent<HTMLButtonElement> | React.TouchEvent<HTMLButtonElement>
+    // ) => void
 }
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -114,7 +114,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         const [effectedClassName, setEffectedClassName] = useState('')
 
         // interval id
-        let intervalId: NodeJS.Timeout | undefined
+        let intervalId = useRef<NodeJS.Timeout | undefined>(undefined)
 
         const getEffectedClassName = () => {
             if (variant === 'primary') {
@@ -148,13 +148,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
                 return
             }
 
-            if (intervalId === undefined) {
-                intervalId = setInterval(() => {
-                    if (props.onInterval) {
-                        props.onInterval(event)
-                    } else {
-                        onClick(event as React.MouseEvent<HTMLButtonElement>)
-                    }
+            if (intervalId.current === undefined) {
+                intervalId.current = setInterval(() => {
+                    onClick(event as React.MouseEvent<HTMLButtonElement>)
                 }, interval)
             }
         }
@@ -162,9 +158,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         const stopInterval = (
             event: React.MouseEvent<HTMLButtonElement> | React.TouchEvent<HTMLButtonElement>
         ) => {
-            if (intervalId !== undefined) {
-                clearInterval(intervalId)
-                intervalId = undefined
+            if (intervalId.current !== undefined) {
+                clearInterval(intervalId.current)
+                intervalId.current = undefined
             }
         }
 
