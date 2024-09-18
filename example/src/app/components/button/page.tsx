@@ -13,6 +13,7 @@ import { RightMenu } from '@/components/RightMenu'
 
 import { Button } from '../../../../../src'
 import code_interval_basic from './code/interval/basic.txt'
+import code_longpress_basic from './code/longpress/basic.txt'
 import code_size_icon from './code/size/icon.txt'
 import code_size_large from './code/size/large.txt'
 import code_size_small from './code/size/small.txt'
@@ -90,6 +91,10 @@ const rightMenuItems = [
                 link: '#interval-basic'
             }
         ]
+    },
+    {
+        title: 'Long Press',
+        link: '#long-press'
     },
     {
         title: 'Attributes',
@@ -209,6 +214,31 @@ export default function ButtonPage() {
                                     }}
                                 >
                                     Interval output log
+                                </Button>
+                            </CodePreview>
+                        </div>
+                    </div>
+
+                    {/* Long Press */}
+                    <div id="long-press">
+                        <h2>Long Press</h2>
+                        <p>Any callback can be invoked when the button is pressed and held.</p>
+
+                        <div>
+                            <h3 id="interval-basic">Basic</h3>
+                            <p>
+                                The long press time is set numerically in the <code>delay</code>{' '}
+                                attribute,
+                                <code>callback</code> sets the function object to onLongPress.
+                            </p>
+                            <CodePreview code={code_longpress_basic}>
+                                <Button
+                                    delay={1000}
+                                    onLongPress={() => {
+                                        console.log('Long Pressed!')
+                                    }}
+                                >
+                                    Long Press Me!
                                 </Button>
                             </CodePreview>
                         </div>
