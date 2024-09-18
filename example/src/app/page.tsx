@@ -6,7 +6,7 @@ export default function Home() {
                 <div>
                     <ul>
                         <li>
-                            <a href="/button">Button</a>
+                            <a href="/components/button">Button</a>
                         </li>
                     </ul>
                 </div>

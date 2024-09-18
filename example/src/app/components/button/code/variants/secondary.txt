@@ -1,0 +1,5 @@
+import { Button } from '@kotsutsumi/viz-ui'
+
+export function ButtonDemo() {
+    return <Button variant="secondary">Secondary</Button>
+}

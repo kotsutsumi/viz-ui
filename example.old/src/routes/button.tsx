@@ -75,7 +75,7 @@ export function ButtonDemo() {
                                     <code>{`import { Button } from '@kotsutsumi/viz-ui'
 
 export function ButtonDemo() {
-  return <Button variant="primary">Primary</Button>
+    return <Button variant="primary">Primary</Button>
 }`}</code>
                                 </pre>
                             </Tabs.Content>
