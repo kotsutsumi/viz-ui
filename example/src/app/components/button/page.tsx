@@ -94,7 +94,13 @@ const rightMenuItems = [
     },
     {
         title: 'Long Press',
-        link: '#long-press'
+        link: '#long-press',
+        items: [
+            {
+                title: 'Basic',
+                link: '#long-press-basic'
+            }
+        ]
     },
     {
         title: 'Attributes',
@@ -225,7 +231,7 @@ export default function ButtonPage() {
                         <p>Any callback can be invoked when the button is pressed and held.</p>
 
                         <div>
-                            <h3 id="interval-basic">Basic</h3>
+                            <h3 id="long-press-basic">Basic</h3>
                             <p>
                                 The long press time is set numerically in the <code>delay</code>{' '}
                                 attribute,
