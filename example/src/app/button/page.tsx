@@ -1,22 +1,20 @@
+'use client'
+
 import { ArrowBigDownDash } from 'lucide-react'
 import Prism from 'prismjs'
 import { useEffect } from 'react'
 
-import { createFileRoute } from '@tanstack/react-router'
-import { Button } from '@kotsutsumi/viz-ui'
 import { Tabs } from '@ark-ui/react'
 
-export const Route = createFileRoute('/button')({
-    component: PageComponent
-})
+import { Button } from '../../../../src'
 
-function PageComponent() {
+export default function ButtonPage() {
     useEffect(() => {
         Prism.highlightAll()
     }, [])
 
     return (
-
+        <div className="p-8">
             <div className="prose prose-xl">
                 {/* Description */}
                 <div>
@@ -42,7 +40,7 @@ function PageComponent() {
                                     <code>{`import { Button } from '@kotsutsumi/viz-ui'
 
 export function ButtonDemo() {
-  return <Button>Button</Button>
+    return <Button>Button</Button>
 }`}</code>
                                 </pre>
                             </Tabs.Content>
@@ -75,7 +73,7 @@ export function ButtonDemo() {
                                     <code>{`import { Button } from '@kotsutsumi/viz-ui'
 
 export function ButtonDemo() {
-  return <Button variant="primary">Primary</Button>
+return <Button variant="primary">Primary</Button>
 }`}</code>
                                 </pre>
                             </Tabs.Content>
@@ -98,7 +96,7 @@ export function ButtonDemo() {
                                     <code>{`import { Button } from '@kotsutsumi/viz-ui'
 
 export function ButtonDemo() {
-  return <Button variant="secondary">Secondary</Button>
+return <Button variant="secondary">Secondary</Button>
 }`}</code>
                                 </pre>
                             </Tabs.Content>
@@ -121,7 +119,7 @@ export function ButtonDemo() {
                                     <code>{`import { Button } from '@kotsutsumi/viz-ui'
 
 export function ButtonDemo() {
-  return <Button variant="destructive">Destructive</Button>
+return <Button variant="destructive">Destructive</Button>
 }`}</code>
                                 </pre>
                             </Tabs.Content>
@@ -144,7 +142,7 @@ export function ButtonDemo() {
                                     <code>{`import { Button } from '@kotsutsumi/viz-ui'
 
 export function ButtonDemo() {
-  return <Button variant="outline">Outline</Button>
+return <Button variant="outline">Outline</Button>
 }`}</code>
                                 </pre>
                             </Tabs.Content>
@@ -167,7 +165,7 @@ export function ButtonDemo() {
                                     <code>{`import { Button } from '@kotsutsumi/viz-ui'
 
 export function ButtonDemo() {
-  return <Button variant="ghost">Ghost</Button>
+return <Button variant="ghost">Ghost</Button>
 }`}</code>
                                 </pre>
                             </Tabs.Content>
@@ -190,7 +188,7 @@ export function ButtonDemo() {
                                     <code>{`import { Button } from '@kotsutsumi/viz-ui'
 
 export function ButtonDemo() {
-  return <Button variant="link">Link</Button>
+return <Button variant="link">Link</Button>
 }`}</code>
                                 </pre>
                             </Tabs.Content>
@@ -222,7 +220,7 @@ export function ButtonDemo() {
                                     <code>{`import { Button } from '@kotsutsumi/viz-ui'
 
 export function ButtonDemo() {
-  return <Button size="sm">Small</Button>
+return <Button size="sm">Small</Button>
 }`}</code>
                                 </pre>
                             </Tabs.Content>
@@ -244,7 +242,7 @@ export function ButtonDemo() {
                                     <code>{`import { Button } from '@kotsutsumi/viz-ui'
 
 export function ButtonDemo() {
-  return <Button size="lg">Large</Button>
+return <Button size="lg">Large</Button>
 }`}</code>
                                 </pre>
                             </Tabs.Content>
@@ -269,7 +267,7 @@ export function ButtonDemo() {
                                     <code>{`import { Button } from '@kotsutsumi/viz-ui'
 
 export function ButtonDemo() {
-  return <Button size="icon">Icon</Button>
+return <Button size="icon">Icon</Button>
 }`}</code>
                                 </pre>
                             </Tabs.Content>
@@ -308,12 +306,12 @@ export function ButtonDemo() {
                                         <code>{`import { Button } from '@kotsutsumi/viz-ui'
 
 export function ButtonDemo() {
-  return <Button
-    interval={100}
-    onClick={() => {
-      console.log('Clicked!')
-    }}
-  >Interval output log</Button>
+return <Button
+interval={100}
+onClick={() => {
+console.log('Clicked!')
+}}
+>Interval output log</Button>
 }`}</code>
                                     </pre>
                                 </Tabs.Content>

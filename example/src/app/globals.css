@@ -2,26 +2,96 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@layer base {
+    :root {
+        --background: 0 0% 100%;
+        --foreground: 0 0 94%;
+        --primary: 221.2 83.2% 53.3%;
+        --primary-foreground: 210 40% 98%;
+        --secondary: 210 40% 96.1%;
+        --secondary-foreground: 222.2 47.4% 11.2%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 210 40% 98%;
+        --accent: 210 40% 96.1%;
+        --accent-foreground: 222.2 47.4% 11.2%;
+        --muted: 210 40% 96.1%;
+        --muted-foreground: 215.4 16.3% 46.9%;
+        --border: 214.3 31.8% 91.4%;
+    }
 }
 
+/* 
+// for dark mode
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+    :root {
+        --background: #0a0a0a;
+        --foreground: #ededed;
+    }
 }
+    */
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+    color: var(--foreground);
+    background: var(--background);
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+    .hidden-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    .hidden-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+    .text-balance {
+        text-wrap: balance;
+    }
+}
+
+@layer components {
+    code {
+        @apply border bg-gray-50 rounded p-1;
+    }
+    code::before,
+    code::after {
+        content: '' !important;
+    }
+
+    .code-container {
+        @apply p-4 border rounded-lg;
+    }
+
+    /* Tabs */
+    [data-scope='tabs'][data-part='root'] {
+        @apply flex flex-col w-full;
+    }
+
+    [data-scope='tabs'][data-part='list'][data-orientation='horizontal'] {
+        @apply flex overflow-auto relative gap-4 shrink-0 hidden-scrollbar;
+        box-shadow: 0 -1px 0 0 inset rgb(229 231 235);
+    }
+
+    [data-scope='tabs'][data-part='content'] {
+        @apply pt-4;
+    }
+
+    [data-scope='tabs'][data-part='indicator'] {
+        @apply bg-sky-600;
+        width: var(--width);
+        bottom: 0;
+    }
+
+    [data-scope='tabs'][data-part='indicator'] {
+        height: 2px;
+    }
+
+    [data-scope='tabs'][data-part='trigger'] {
+        @apply px-3 text-sm font-semibold min-w-10 pb-1 h-10 text-gray-400 cursor-pointer gap-2 whitespace-nowrap items-center justify-items-center shrink-0;
+        z-index: 1;
+    }
+
+    [data-scope='tabs'][data-part='trigger'][data-selected] {
+        @apply text-gray-600;
+    }
 }
