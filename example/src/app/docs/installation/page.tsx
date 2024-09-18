@@ -17,7 +17,7 @@ export default function Page() {
                 <Content>Docs Installation WIP.</Content>
 
                 {/* Right Menu */}
-                <RightMenu />
+                <RightMenu items={[]} />
             </div>
         </div>
     )
