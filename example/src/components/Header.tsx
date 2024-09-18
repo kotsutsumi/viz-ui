@@ -7,8 +7,8 @@ export default function Header() {
                         aria-hidden="true"
                         viewBox="0 0 24 24"
                         fill="none"
-                        stroke-width="2"
-                        stroke-linecap="round"
+                        strokeWidth="2"
+                        strokeLinecap="round"
                         className="h-6 w-6 stroke-slate-500"
                     >
                         <path d="M4 7h16M4 12h16M4 17h16"></path>
