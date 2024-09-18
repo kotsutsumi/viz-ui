@@ -4,6 +4,10 @@ import { routeTree } from './routeTree.gen'
 
 import './App.css'
 
+// const memoryHistory = createMemoryHistory({
+//     initialEntries: ['/'] // Pass your initial url
+// })
+
 const router = createRouter({ routeTree })
 
 declare module '@tanstack/react-router' {

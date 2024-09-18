@@ -75,23 +75,19 @@ const buttonVariants = tv({
                 h-9
                 px-4
                 py-2
-            `
-            /*
+            `,
             sm: `
-                h-8
-                px-3
-                rounded-md
+                h-6
+                px-2
                 text-xs
             `,
             lg: `
                 h-10
                 px-8
-                rounded-md
             `,
             icon: `
                 size-9
             `
-            */
         }
     },
     defaultVariants: {
@@ -119,6 +115,24 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
         // interval id
         let intervalId: NodeJS.Timeout | undefined
+
+        const getEffectedClassName = () => {
+            if (variant === 'primary') {
+                return 'hover:bg-primary'
+            } else if (variant === 'secondary') {
+                return 'hover:bg-secondary'
+            } else if (variant === 'outline') {
+                return 'hover:bg-transparent'
+            } else if (variant === 'ghost') {
+                return 'hover:bg-transparent'
+            } else if (variant === 'destructive') {
+                return 'hover:bg-destructive'
+            } else if (variant === 'link') {
+                return 'hover:no-underline'
+            }
+
+            return 'hover:bg-gray-200'
+        }
 
         // onClick handler
         const onClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -164,7 +178,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             }
 
             // set effected class name
-            setEffectedClassName('hover:bg-gray-200')
+            setEffectedClassName(getEffectedClassName())
         }
 
         // onMouseUp handler
@@ -203,7 +217,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             }
 
             // set effected class name
-            setEffectedClassName('hover:bg-gray-200')
+            setEffectedClassName(getEffectedClassName())
         }
 
         // onTouchEnd handler
