@@ -1,3 +1,10 @@
+/**
+ * Button - VizUI
+ *
+ * This is a button component for React.
+ *
+ * Kazuhiro Kotsutsumi<kotsutsumi@gmail.com>
+ */
 import { ButtonHTMLAttributes, forwardRef, MutableRefObject, useState } from 'react'
 import React from 'react'
 import { tv, VariantProps } from 'tailwind-variants'
@@ -31,25 +38,27 @@ const buttonVariants = tv({
                 text-muted-foreground
                 border
             `,
+            primary: `
+                bg-primary
+                hover:bg-primary/80
+                text-primary-foreground
+            `,
+            secondary: `
+                bg-secondary
+                hover:bg-secondary/80
+                text-secondary-foreground
+            `,
             destructive: `
                 bg-destructive
                 hover:bg-destructive/90
                 text-destructive-foreground
-            `
-            /*
+            `,
             outline: `
                 bg-background
                 border
                 border-input
                 hover:bg-accent
                 hover:text-accent-foreground
-                shadow-sm
-            `,
-            secondary: `
-                bg-secondary
-                hover:bg-secondary/80
-                shadow-sm
-                text-secondary-foreground
             `,
             ghost: `
                 hover:bg-accent
@@ -60,7 +69,6 @@ const buttonVariants = tv({
                 text-primary
                 underline-offset-4
             `
-            */
         },
         size: {
             default: `
