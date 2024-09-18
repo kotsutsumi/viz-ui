@@ -1,4 +1,6 @@
-export default function Header() {
+'use client'
+
+const Header = function () {
     return (
         <header className="sticky top-0 z-50 flex flex-none flex-wrap items-center justify-between bg-white px-4 py-5 shadow-md shadow-slate-900/5 transition duration-500 sm:px-6 lg:px-8 dark:shadow-none dark:bg-transparent">
             <div className="mr-6 flex lg:hidden">
@@ -23,3 +25,5 @@ export default function Header() {
         </header>
     )
 }
+
+export { Header }

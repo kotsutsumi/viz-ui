@@ -1,0 +1,10 @@
+import { Button } from '@kotsutsumi/viz-ui'
+
+export function ButtonDemo() {
+    return <Button
+        interval={100}
+        onClick={() => {
+            console.log('Clicked!')
+        }}
+    >Interval output log</Button>
+}
