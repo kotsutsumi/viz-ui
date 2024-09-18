@@ -22,13 +22,12 @@ function PageComponent() {
             <div className="code-container">
                 <Tabs.Root defaultValue="preview">
                     <Tabs.List className="">
-                        <Tabs.Trigger value="preview" className="px-3 h-10">
-                            Preview
-                        </Tabs.Trigger>
+                        <Tabs.Trigger value="preview">Preview</Tabs.Trigger>
                         <Tabs.Trigger value="code">Code</Tabs.Trigger>
+                        <Tabs.Indicator />
                     </Tabs.List>
                     <Tabs.Content value="preview">
-                        <Button />
+                        <Button>Button</Button>
                     </Tabs.Content>
                     <Tabs.Content value="code">
                         <pre className="language-javascript">
