@@ -37,6 +37,7 @@ export interface ContainerProps extends HTMLAttributes<HTMLDivElement> {
 const Container = forwardRef<HTMLDivElement, ContainerProps>(
     (
         {
+            className,
             children,
             direction = Direction.Vertical,
             gap = 0,
@@ -103,7 +104,7 @@ const Container = forwardRef<HTMLDivElement, ContainerProps>(
         }
 
         return (
-            <div ref={ref} {...props} className={cn(cls)}>
+            <div ref={ref} {...props} className={cn(cls, className)}>
                 {children}
             </div>
         )
