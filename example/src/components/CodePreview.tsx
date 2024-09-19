@@ -28,7 +28,7 @@ const CodePreview = function ({
                 <Tabs.Content value="code">
                     <Highlight theme={themes.jettwaveDark} code={codeBlock} language="tsx">
                         {({ className, style, tokens, getLineProps, getTokenProps }) => (
-                            <pre style={style} className="relative">
+                            <pre style={style} className="relative m-0">
                                 <CodeCopyButton codeBlock={codeBlock} />
                                 {tokens.map((line, i) => (
                                     <div key={i} {...getLineProps({ line })}>
