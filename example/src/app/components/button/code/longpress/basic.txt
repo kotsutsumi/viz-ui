@@ -1,0 +1,14 @@
+import { Button } from '@kotsutsumi/viz-ui'
+
+export function ButtonDemo() {
+    return (
+        <Button
+            delay={1000}
+            onLongPress={() => {
+                console.log('Long Pressed!')
+            }}
+        >
+            Long Press Me!
+        </Button>
+    )
+}

@@ -16,8 +16,9 @@ import cn from '../lib/cn'
 const buttonVariants = tv({
     base: `
         text-sm
+        self-start
+        inline-block
         font-medium
-        inline-flex
         items-center
         justify-center
         focus-visible:outline-none
@@ -101,13 +102,23 @@ export interface ButtonProps
         VariantProps<typeof buttonVariants> {
     asChild?: boolean
     interval?: number
-    // onInterval?: (
-    //     event: React.MouseEvent<HTMLButtonElement> | React.TouchEvent<HTMLButtonElement>
-    // ) => void
+    delay?: number
+    onLongPress?: () => void
 }
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-    ({ className, variant, size, asChild = false, interval = undefined, ...props }, ref) => {
+    (
+        {
+            className,
+            variant,
+            size,
+            asChild = false,
+            interval = undefined,
+            delay = undefined,
+            ...props
+        },
+        ref
+    ) => {
         //
 
         // effected class names
@@ -115,6 +126,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
         // interval id
         let intervalId = useRef<NodeJS.Timeout | undefined>(undefined)
+
+        // timeout
+        let timeout: MutableRefObject<NodeJS.Timeout | undefined> = useRef(undefined)
 
         const getEffectedClassName = () => {
             if (variant === 'primary') {
@@ -139,6 +153,21 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             if (props.onClick) {
                 props.onClick(event)
             }
+        }
+
+        const startTimeout = () => {
+            if (timeout.current === undefined) {
+                timeout.current = setTimeout(() => {
+                    if (props.onLongPress) {
+                        props.onLongPress()
+                    }
+                }, delay)
+            }
+        }
+
+        const stopTimeout = () => {
+            timeout.current && clearTimeout(timeout.current)
+            timeout.current = undefined
         }
 
         const startInterval = (
@@ -169,6 +198,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             // start interval
             startInterval(event)
 
+            // start timeout
+            startTimeout()
+
             if (props.onMouseDown) {
                 props.onMouseDown(event)
             }
@@ -181,6 +213,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         const onMouseUp = (event: React.MouseEvent<HTMLButtonElement>) => {
             // stop interval
             stopInterval(event)
+
+            // stop timeout
+            stopTimeout()
 
             if (props.onMouseUp) {
                 props.onMouseUp(event)
@@ -195,6 +230,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             // stop interval
             stopInterval(event)
 
+            // stop timeout
+            stopTimeout()
+
             if (props.onMouseLeave) {
                 props.onMouseLeave(event)
             }
@@ -208,6 +246,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             // start interval
             startInterval(event)
 
+            // start timeout
+            startTimeout()
+
             if (props.onTouchStart) {
                 props.onTouchStart(event)
             }
@@ -220,6 +261,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         const onTouchEnd = (event: React.TouchEvent<HTMLButtonElement>) => {
             // stop interval
             stopInterval(event)
+
+            // stop timeout
+            stopTimeout()
 
             if (props.onTouchEnd) {
                 props.onTouchEnd(event)
