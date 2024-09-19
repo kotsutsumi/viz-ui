@@ -1,8 +1,7 @@
 'use client'
 
 import { ArrowBigDownDash } from 'lucide-react'
-import Prism from 'prismjs'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 import { CodePreview } from '@/components/CodePreview'
 import { ComponentPage } from '@/components/ComponentPage'
@@ -132,10 +131,6 @@ const rightMenuItems = [
 ]
 
 export default function Page() {
-    useEffect(() => {
-        Prism.highlightAll()
-    }, [])
-
     const [disabled, setDisabled] = useState(true)
 
     return (
@@ -149,12 +144,12 @@ export default function Page() {
             {/* Basic */}
             <div id="basic">
                 <h2>Basic</h2>
-                <CodePreview code={code_basic_basic}>
+                <CodePreview codeBlock={code_basic_basic}>
                     <Button>Button</Button>
                 </CodePreview>
 
                 <h2>asChild</h2>
-                <CodePreview code={code_basic_aschild}>
+                <CodePreview codeBlock={code_basic_aschild}>
                     <Button asChild>
                         <a href="#">Link</a>
                     </Button>
@@ -170,32 +165,32 @@ export default function Page() {
                 </p>
 
                 <h3 id="variants-primary">Primary</h3>
-                <CodePreview code={code_variants_primary}>
+                <CodePreview codeBlock={code_variants_primary}>
                     <Button variant="primary">Primary</Button>
                 </CodePreview>
 
                 <h3 id="variants-secondary">Secondary</h3>
-                <CodePreview code={code_variants_secondary}>
+                <CodePreview codeBlock={code_variants_secondary}>
                     <Button variant="secondary">Secondary</Button>
                 </CodePreview>
 
                 <h3 id="variants-destructive">Destructive</h3>
-                <CodePreview code={code_variants_destructive}>
+                <CodePreview codeBlock={code_variants_destructive}>
                     <Button variant="destructive">Destructive</Button>
                 </CodePreview>
 
                 <h3 id="variants-outline">Outline</h3>
-                <CodePreview code={code_variants_outline}>
+                <CodePreview codeBlock={code_variants_outline}>
                     <Button variant="outline">Outline</Button>
                 </CodePreview>
 
                 <h3 id="variants-ghost">Ghost</h3>
-                <CodePreview code={code_variants_ghost}>
+                <CodePreview codeBlock={code_variants_ghost}>
                     <Button variant="ghost">Ghost</Button>
                 </CodePreview>
 
                 <h3 id="variants-link">Link</h3>
-                <CodePreview code={code_variants_link}>
+                <CodePreview codeBlock={code_variants_link}>
                     <Button variant="link">Link</Button>
                 </CodePreview>
             </div>
@@ -209,17 +204,17 @@ export default function Page() {
                 </p>
 
                 <h3 id="size-small">Small</h3>
-                <CodePreview code={code_size_small}>
+                <CodePreview codeBlock={code_size_small}>
                     <Button size="sm">Small</Button>
                 </CodePreview>
 
                 <h3 id="size-large">Large</h3>
-                <CodePreview code={code_size_large}>
+                <CodePreview codeBlock={code_size_large}>
                     <Button size="lg">Large</Button>
                 </CodePreview>
 
                 <h3 id="size-icon">Icon</h3>
-                <CodePreview code={code_size_icon}>
+                <CodePreview codeBlock={code_size_icon}>
                     <Button size="icon">
                         <ArrowBigDownDash />
                     </Button>
@@ -231,12 +226,12 @@ export default function Page() {
                 <h2>Disabled</h2>
 
                 <h3 id="disabled-basic">Basic</h3>
-                <CodePreview code={code_disabled_basic}>
+                <CodePreview codeBlock={code_disabled_basic}>
                     <Button disabled>Button</Button>
                 </CodePreview>
 
                 <h3 id="disabled-state">State</h3>
-                <CodePreview code={code_disabled_state}>
+                <CodePreview codeBlock={code_disabled_state}>
                     <Button disabled={disabled}>Button</Button>
                 </CodePreview>
             </div>
@@ -253,7 +248,7 @@ export default function Page() {
                         milliseconds.
                     </p>
 
-                    <CodePreview code={code_interval_basic}>
+                    <CodePreview codeBlock={code_interval_basic}>
                         <Button
                             interval={100}
                             onClick={() => {
@@ -277,7 +272,7 @@ export default function Page() {
                         The long press time is set numerically in the <code>delay</code> attribute,
                         <code>callback</code> sets the function object to <code>delayFn</code>.
                     </p>
-                    <CodePreview code={code_longpress_basic}>
+                    <CodePreview codeBlock={code_longpress_basic}>
                         <Button
                             delay={1000}
                             delayFn={() => {

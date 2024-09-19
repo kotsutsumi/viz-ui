@@ -1,11 +1,19 @@
 'use client'
 
-import Prism from 'prismjs'
-import { useEffect } from 'react'
+import { Highlight, themes } from 'prism-react-renderer'
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import styles from 'styles.module.css'
 
 import { Tabs } from '@ark-ui/react'
 
-const CodePreview = function ({ children, code }: { children: React.ReactNode; code: string }) {
+const CodePreview = function ({
+    children,
+    codeBlock
+}: {
+    children: React.ReactNode
+    codeBlock: string
+}) {
     return (
         <div className="code-container">
             <Tabs.Root defaultValue="preview">
@@ -16,9 +24,23 @@ const CodePreview = function ({ children, code }: { children: React.ReactNode; c
                 </Tabs.List>
                 <Tabs.Content value="preview">{children}</Tabs.Content>
                 <Tabs.Content value="code">
-                    <pre className="language-javascript">
+                    <Highlight theme={themes.jettwaveDark} code={codeBlock} language="tsx">
+                        {({ className, style, tokens, getLineProps, getTokenProps }) => (
+                            <pre style={style}>
+                                {tokens.map((line, i) => (
+                                    <div key={i} {...getLineProps({ line })}>
+                                        {/* <span>{i + 1}</span> */}
+                                        {line.map((token, key) => (
+                                            <span key={key} {...getTokenProps({ token })} />
+                                        ))}
+                                    </div>
+                                ))}
+                            </pre>
+                        )}
+                    </Highlight>
+                    {/* <pre className="language-javascript">
                         <code>{code}</code>
-                    </pre>
+                    </pre> */}
                 </Tabs.Content>
             </Tabs.Root>
         </div>

@@ -16,10 +16,6 @@ const rightMenuItems = [
 ]
 
 export default function Page() {
-    useEffect(() => {
-        // Prism.highlightAll()
-    }, [])
-
     return (
         <ComponentPage rightMenuItems={rightMenuItems}>
             {/* Description */}
@@ -31,7 +27,7 @@ export default function Page() {
             {/* Basic */}
             <div id="basic">
                 <h2>Basic</h2>
-                <CodePreview code={''}>
+                <CodePreview codeBlock={''}>
                     <Panel>
                         <Button>Button A</Button>
                         <Button>Button B</Button>

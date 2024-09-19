@@ -1,9 +1,5 @@
 'use client'
 
-import Prism from 'prismjs'
-import { title } from 'process'
-import { useEffect } from 'react'
-
 import { ComponentPage } from '@/components/ComponentPage'
 import { CodePreview } from '@/components/CodePreview'
 
@@ -17,10 +13,6 @@ const rightMenuItems = [
 ]
 
 export default function Page() {
-    useEffect(() => {
-        Prism.highlightAll()
-    }, [])
-
     return (
         <ComponentPage rightMenuItems={rightMenuItems}>
             {/* Description */}
@@ -32,7 +24,7 @@ export default function Page() {
             {/* Basic */}
             <div id="basic">
                 <h2>Basic</h2>
-                <CodePreview code={''}>
+                <CodePreview codeBlock={''}>
                     <Container>
                         <Button>Button A</Button>
                         <Button>Button B</Button>
@@ -44,7 +36,7 @@ export default function Page() {
             {/* Horizontal */}
             <div id="basic">
                 <h2>Horizontal</h2>
-                <CodePreview code={''}>
+                <CodePreview codeBlock={''}>
                     <Container direction="horizontal">
                         <Button>Button A</Button>
                         <Button>Button B</Button>
@@ -58,7 +50,7 @@ export default function Page() {
                 <h2>Gap</h2>
 
                 <h3>Horizontal</h3>
-                <CodePreview code={''}>
+                <CodePreview codeBlock={''}>
                     <Container gap={4} direction="horizontal">
                         <Button>Button A</Button>
                         <Button>Button B</Button>
@@ -67,7 +59,7 @@ export default function Page() {
                 </CodePreview>
 
                 <h3>Vertical</h3>
-                <CodePreview code={''}>
+                <CodePreview codeBlock={''}>
                     <Container gap={4}>
                         <Button>Button A</Button>
                         <Button>Button B</Button>
@@ -82,7 +74,7 @@ export default function Page() {
 
                 <h3>Horizontal Left</h3>
 
-                <CodePreview code={''}>
+                <CodePreview codeBlock={''}>
                     <Container gap={4} direction="horizontal" align="left">
                         <Button>Button A</Button>
                         <Button>Button B</Button>
@@ -92,7 +84,7 @@ export default function Page() {
 
                 <h3>Horizontal Center</h3>
 
-                <CodePreview code={''}>
+                <CodePreview codeBlock={''}>
                     <Container gap={4} direction="horizontal" align="center">
                         <Button>Button A</Button>
                         <Button>Button B</Button>
@@ -101,7 +93,7 @@ export default function Page() {
                 </CodePreview>
 
                 <h3>Horizontal Right</h3>
-                <CodePreview code={''}>
+                <CodePreview codeBlock={''}>
                     <Container gap={4} direction="horizontal" align="right">
                         <Button>Button A</Button>
                         <Button>Button B</Button>
@@ -111,7 +103,7 @@ export default function Page() {
 
                 <h3>Vertical Left</h3>
 
-                <CodePreview code={''}>
+                <CodePreview codeBlock={''}>
                     <Container gap={4} direction="vertical" align="left">
                         <Button>Button A</Button>
                         <Button>Button B</Button>
@@ -121,7 +113,7 @@ export default function Page() {
 
                 <h3>Vertical Center</h3>
 
-                <CodePreview code={''}>
+                <CodePreview codeBlock={''}>
                     <Container gap={4} direction="vertical" align="center">
                         <Button>Button A</Button>
                         <Button>Button B</Button>
@@ -130,7 +122,7 @@ export default function Page() {
                 </CodePreview>
 
                 <h3>Vertical Right</h3>
-                <CodePreview code={''}>
+                <CodePreview codeBlock={''}>
                     <Container gap={4} direction="vertical" align="right">
                         <Button>Button A</Button>
                         <Button>Button B</Button>
@@ -145,7 +137,7 @@ export default function Page() {
 
                 <h3>Horizontal Top</h3>
 
-                <CodePreview code={''}>
+                <CodePreview codeBlock={''}>
                     <div className="h-64 bg-slate-100">
                         <Container gap={4} direction="horizontal" valign="top">
                             <Button>Button A</Button>
@@ -157,7 +149,7 @@ export default function Page() {
 
                 <h3>Horizontal Center</h3>
 
-                <CodePreview code={''}>
+                <CodePreview codeBlock={''}>
                     <div className="h-64 bg-slate-100">
                         <Container gap={4} direction="horizontal" valign="center">
                             <Button>Button A</Button>
@@ -168,7 +160,7 @@ export default function Page() {
                 </CodePreview>
 
                 <h3>Horizontal Bottom</h3>
-                <CodePreview code={''}>
+                <CodePreview codeBlock={''}>
                     <div className="h-64 bg-slate-100">
                         <Container gap={4} direction="horizontal" valign="bottom">
                             <Button>Button A</Button>
@@ -180,7 +172,7 @@ export default function Page() {
 
                 <h3>Vertical Top</h3>
 
-                <CodePreview code={''}>
+                <CodePreview codeBlock={''}>
                     <div className="h-64 bg-slate-100">
                         <Container gap={4} direction="vertical" valign="left">
                             <Button>Button A</Button>
@@ -192,7 +184,7 @@ export default function Page() {
 
                 <h3>Vertical Center</h3>
 
-                <CodePreview code={''}>
+                <CodePreview codeBlock={''}>
                     <div className="h-64 bg-slate-100">
                         <Container gap={4} direction="vertical" valign="center">
                             <Button>Button A</Button>
@@ -203,7 +195,7 @@ export default function Page() {
                 </CodePreview>
 
                 <h3>Vertical Bottom</h3>
-                <CodePreview code={''}>
+                <CodePreview codeBlock={''}>
                     <div className="h-64 bg-slate-100">
                         <Container gap={4} direction="vertical" valign="bottom">
                             <Button>Button A</Button>
@@ -224,7 +216,7 @@ export default function Page() {
                 </p>
 
                 <h3>Vertical Right Top</h3>
-                <CodePreview code={''}>
+                <CodePreview codeBlock={''}>
                     <div className="h-64 bg-slate-100">
                         <Container gap={4} direction="vertical" align="right" valign="top">
                             <Button>Button A</Button>
@@ -235,7 +227,7 @@ export default function Page() {
                 </CodePreview>
 
                 <h3>Vertical Right Center</h3>
-                <CodePreview code={''}>
+                <CodePreview codeBlock={''}>
                     <div className="h-64 bg-slate-100">
                         <Container gap={4} direction="vertical" align="right" valign="center">
                             <Button>Button A</Button>
@@ -246,7 +238,7 @@ export default function Page() {
                 </CodePreview>
 
                 <h3>Vertical Right Bottom</h3>
-                <CodePreview code={''}>
+                <CodePreview codeBlock={''}>
                     <div className="h-64 bg-slate-100">
                         <Container gap={4} direction="vertical" align="right" valign="bottom">
                             <Button>Button A</Button>
