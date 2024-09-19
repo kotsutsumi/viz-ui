@@ -22,8 +22,8 @@ Vite to Next.js SSR, MPA style for github pages.
 
 ### Container
 
--   [] Code for docs
--   [] Table of Contents Creation
+-   [x] Table of Contents Creation
+-   [x] Code for docs
 
 ### Panel
 

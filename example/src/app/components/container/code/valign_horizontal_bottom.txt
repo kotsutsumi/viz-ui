@@ -1,0 +1,11 @@
+import { Button } from '@kotsutsumi/viz-ui'
+
+export function ButtonDemo() {
+    return (
+        <Container gap={4} direction="horizontal" valign="bottom">
+            <Button>Button A</Button>
+            <Button>Button B</Button>
+            <Button>Button C</Button>
+        </Container>
+    )
+}
