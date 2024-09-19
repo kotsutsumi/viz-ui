@@ -15,7 +15,8 @@ Vite to Next.js SSR, MPA style for github pages.
 ### Button
 
 -   [x] Support LongTap
--   [] Add asChild docs
+-   [x] Support disabled
+-   [x] Add asChild docs
 -   [] Provide a description of the attribute values
 
 ### Container

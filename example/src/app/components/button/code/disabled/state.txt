@@ -1,0 +1,7 @@
+import { Button } from '@kotsutsumi/viz-ui'
+
+export function ButtonDemo() {
+    const [disabled, setDisabled] = useState(true)
+
+    return <Button disabled={disabled}>Button</Button>
+}

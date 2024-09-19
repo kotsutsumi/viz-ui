@@ -2,12 +2,16 @@
 
 import { ArrowBigDownDash } from 'lucide-react'
 import Prism from 'prismjs'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 import { CodePreview } from '@/components/CodePreview'
 import { ComponentPage } from '@/components/ComponentPage'
 
 import { Button } from '../../../../../src'
+import code_basic_aschild from './code/basic/aschild.txt'
+import code_basic_basic from './code/basic/basic.txt'
+import code_disabled_basic from './code/disabled/basic.txt'
+import code_disabled_state from './code/disabled/state.txt'
 import code_interval_basic from './code/interval/basic.txt'
 import code_longpress_basic from './code/longpress/basic.txt'
 import code_size_icon from './code/size/icon.txt'
@@ -19,7 +23,6 @@ import code_variants_link from './code/variants/link.txt'
 import code_variants_outline from './code/variants/outline.txt'
 import code_variants_primary from './code/variants/primary.txt'
 import code_variants_secondary from './code/variants/secondary.txt'
-import code_basic from './code/basic.txt'
 
 const rightMenuItems = [
     {
@@ -28,7 +31,17 @@ const rightMenuItems = [
     },
     {
         title: 'Basic',
-        link: '#basic'
+        link: '#basic',
+        items: [
+            {
+                title: 'Basic',
+                link: '#basic'
+            },
+            {
+                title: 'asChild',
+                link: '#asChild'
+            }
+        ]
     },
     {
         title: 'Variants',
@@ -79,6 +92,20 @@ const rightMenuItems = [
         ]
     },
     {
+        title: 'Disabled',
+        link: '#disabled',
+        items: [
+            {
+                title: 'Basic',
+                link: '#disabled-basic'
+            },
+            {
+                title: 'State',
+                link: '#disabled-state'
+            }
+        ]
+    },
+    {
         title: 'Interval',
         link: '#interval',
         items: [
@@ -109,6 +136,8 @@ export default function Page() {
         Prism.highlightAll()
     }, [])
 
+    const [disabled, setDisabled] = useState(true)
+
     return (
         <ComponentPage rightMenuItems={rightMenuItems}>
             {/* Description */}
@@ -120,8 +149,15 @@ export default function Page() {
             {/* Basic */}
             <div id="basic">
                 <h2>Basic</h2>
-                <CodePreview code={code_basic}>
+                <CodePreview code={code_basic_basic}>
                     <Button>Button</Button>
+                </CodePreview>
+
+                <h2>asChild</h2>
+                <CodePreview code={code_basic_aschild}>
+                    <Button asChild>
+                        <a href="#">Link</a>
+                    </Button>
                 </CodePreview>
             </div>
 
@@ -190,6 +226,21 @@ export default function Page() {
                 </CodePreview>
             </div>
 
+            {/* Disabled */}
+            <div id="disabled">
+                <h2>Disabled</h2>
+
+                <h3 id="disabled-basic">Basic</h3>
+                <CodePreview code={code_disabled_basic}>
+                    <Button disabled>Button</Button>
+                </CodePreview>
+
+                <h3 id="disabled-state">State</h3>
+                <CodePreview code={code_disabled_state}>
+                    <Button disabled={disabled}>Button</Button>
+                </CodePreview>
+            </div>
+
             {/* Interval */}
             <div id="interval">
                 <h2>Interval</h2>
@@ -224,12 +275,12 @@ export default function Page() {
                     <h3 id="long-press-basic">Basic</h3>
                     <p>
                         The long press time is set numerically in the <code>delay</code> attribute,
-                        <code>callback</code> sets the function object to onLongPress.
+                        <code>callback</code> sets the function object to <code>delayFn</code>.
                     </p>
                     <CodePreview code={code_longpress_basic}>
                         <Button
                             delay={1000}
-                            onLongPress={() => {
+                            delayFn={() => {
                                 console.log('Long Pressed!')
                             }}
                         >
