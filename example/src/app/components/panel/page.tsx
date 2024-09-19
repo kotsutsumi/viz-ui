@@ -8,6 +8,8 @@ import { CodePreview } from '@/components/CodePreview'
 
 import { Button, Panel } from '../../../../../src'
 import code_basic from './code/basic.txt'
+import code_closable from './code/closeable.txt'
+import code_collapsible from './code/collapsible.txt'
 
 const rightMenuItems = [
     {
@@ -45,14 +47,26 @@ export default function Page() {
             {/* Closable */}
             <div id="closable">
                 <h2>Closable</h2>
-                <CodePreview codeBlock={code_basic}>
+                <CodePreview codeBlock={code_closable}>
                     <Panel
-                        title="Basic Panel"
+                        title="Closable Panel"
                         closeable
                         closeFn={() => {
                             alert('Close button clicked')
                         }}
                     >
+                        <Button>Button A</Button>
+                        <Button>Button B</Button>
+                        <Button>Button C</Button>
+                    </Panel>
+                </CodePreview>
+            </div>
+
+            {/* Collapsible */}
+            <div id="collapsible">
+                <h2>Collapsible</h2>
+                <CodePreview codeBlock={code_collapsible}>
+                    <Panel title="Basic Panel" collapsible>
                         <Button>Button A</Button>
                         <Button>Button B</Button>
                         <Button>Button C</Button>

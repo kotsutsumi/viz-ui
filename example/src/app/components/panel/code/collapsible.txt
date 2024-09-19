@@ -2,13 +2,7 @@ import { Button } from '@kotsutsumi/viz-ui'
 
 export function ButtonDemo() {
     return (
-        <Panel 
-            title="Closable Panel"
-            closeable
-            closeFn={() => {
-                alert('Close button clicked')
-            }}
-        >
+        <Panel title="Basic Panel" collapsible>
             <Button>Button A</Button>
             <Button>Button B</Button>
             <Button>Button C</Button>
