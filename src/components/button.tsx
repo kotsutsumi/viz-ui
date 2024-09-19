@@ -16,8 +16,9 @@ import cn from '../lib/cn'
 const buttonVariants = tv({
     base: `
         text-sm
+        self-start
+        inline-block
         font-medium
-        inline-flex
         items-center
         justify-center
         focus-visible:outline-none

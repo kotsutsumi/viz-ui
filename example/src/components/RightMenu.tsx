@@ -3,7 +3,7 @@
 const RightMenu = function ({
     items
 }: {
-    items: { title: string; link: string; items?: [{ title: string; link: string }] }[]
+    items: { title: string; link: string; items?: { title: string; link: string }[] }[]
 }) {
     return (
         <div className="hidden xl:sticky xl:top-[4.75rem] xl:-mr-6 xl:block xl:h-[calc(100vh-4.75rem)] xl:flex-none xl:overflow-y-auto xl:py-16 xl:pr-6">
@@ -20,7 +20,7 @@ const RightMenu = function ({
                         return (
                             <li key={`right-menu-${index}`}>
                                 <h3>
-                                    <a className="text-sky-500" href={item.link}>
+                                    <a className="text-primary" href={item.link}>
                                         {item.title}
                                     </a>
                                 </h3>
