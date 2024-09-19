@@ -14,10 +14,11 @@ Vite to Next.js SSR, MPA style for github pages.
 
 ### Button
 
+-   [] After the Select component has been implemented, the split function should be implemented.
+-   [] Provide a description of the attribute values
 -   [x] Support LongTap
 -   [x] Support disabled
 -   [x] Add asChild docs
--   [] Provide a description of the attribute values
 
 ### Container
 

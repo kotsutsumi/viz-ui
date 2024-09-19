@@ -4,11 +4,36 @@ import { ComponentPage } from '@/components/ComponentPage'
 import { CodePreview } from '@/components/CodePreview'
 
 import { Button, Container } from '../../../../../src'
+import code_basic from './code/basic.txt'
 
 const rightMenuItems = [
     {
         title: 'Description',
         link: '#description'
+    },
+    {
+        title: 'Basic',
+        link: '#basic'
+    },
+    {
+        title: 'Horizontal',
+        link: '#horizontal'
+    },
+    {
+        title: 'Gap',
+        link: '#gap'
+    },
+    {
+        title: 'Align',
+        link: '#align'
+    },
+    {
+        title: 'Valign',
+        link: '#valign'
+    },
+    {
+        title: 'Align Valign',
+        link: '#align-valign'
     }
 ]
 
@@ -24,7 +49,7 @@ export default function Page() {
             {/* Basic */}
             <div id="basic">
                 <h2>Basic</h2>
-                <CodePreview codeBlock={''}>
+                <CodePreview codeBlock={code_basic}>
                     <Container>
                         <Button>Button A</Button>
                         <Button>Button B</Button>
@@ -34,7 +59,7 @@ export default function Page() {
             </div>
 
             {/* Horizontal */}
-            <div id="basic">
+            <div id="horizontal">
                 <h2>Horizontal</h2>
                 <CodePreview codeBlock={''}>
                     <Container direction="horizontal">

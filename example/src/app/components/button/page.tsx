@@ -304,7 +304,7 @@ export default function Page() {
                     <tbody>
                         <tr className="text-sm">
                             <td className="px-4 py-2 border-l border-t border-b">
-                                <code className="text-sky-600">variants</code>
+                                <code className="text-primary">variants</code>
                             </td>
                             <td className="px-4 py-2 border-t border-b">
                                 <code className="text-gray-600">'default'</code>

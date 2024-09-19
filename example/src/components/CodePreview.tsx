@@ -7,6 +7,8 @@ import styles from 'styles.module.css'
 
 import { Tabs } from '@ark-ui/react'
 
+import { CodeCopyButton } from './CodeCopyButton'
+
 const CodePreview = function ({
     children,
     codeBlock
@@ -26,7 +28,8 @@ const CodePreview = function ({
                 <Tabs.Content value="code">
                     <Highlight theme={themes.jettwaveDark} code={codeBlock} language="tsx">
                         {({ className, style, tokens, getLineProps, getTokenProps }) => (
-                            <pre style={style}>
+                            <pre style={style} className="relative">
+                                <CodeCopyButton codeBlock={codeBlock} />
                                 {tokens.map((line, i) => (
                                     <div key={i} {...getLineProps({ line })}>
                                         {/* <span>{i + 1}</span> */}
