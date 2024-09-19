@@ -72,6 +72,24 @@ const Container = forwardRef<HTMLDivElement, ContainerProps>(
             }
         }
 
+        if (direction === Direction.Horizontal) {
+            if (valign === Valign.Top) {
+                cls.push(`content-start`)
+            } else if (valign === Valign.Center) {
+                cls.push(`content-center`)
+            } else if (valign === Valign.Bottom) {
+                cls.push(`content-end`)
+            }
+        } else if (direction === Direction.Vertical) {
+            if (valign === Valign.Top) {
+                cls.push(`justify-start`)
+            } else if (valign === Valign.Center) {
+                cls.push(`justify-center`)
+            } else if (valign === Valign.Bottom) {
+                cls.push(`justify-end`)
+            }
+        }
+
         // if (valign === Valign.Top) {
         //     cls.push(`justify-start`)
         // } else if (valign === Valign.Center) {

@@ -50,16 +50,19 @@ export default function Page() {
             {/* Gap */}
             <div id="basic">
                 <h2>Gap</h2>
+
+                <h3>Horizontal</h3>
                 <CodePreview code={''}>
-                    <Container gap={4}>
+                    <Container gap={4} direction="horizontal">
                         <Button>Button A</Button>
                         <Button>Button B</Button>
                         <Button>Button C</Button>
                     </Container>
                 </CodePreview>
 
+                <h3>Vertical</h3>
                 <CodePreview code={''}>
-                    <Container gap={4} direction="horizontal">
+                    <Container gap={4}>
                         <Button>Button A</Button>
                         <Button>Button B</Button>
                         <Button>Button C</Button>
@@ -131,13 +134,14 @@ export default function Page() {
             </div>
 
             {/* Valign */}
-            {/* <div id="valign">
+            <div id="valign">
                 <h2>Valign</h2>
 
-                <h3>Top</h3>
+                <h3>Horizontal Top</h3>
+
                 <CodePreview code={''}>
                     <div className="h-64 bg-slate-100">
-                        <Container gap={4} valign="top">
+                        <Container gap={4} direction="horizontal" valign="top">
                             <Button>Button A</Button>
                             <Button>Button B</Button>
                             <Button>Button C</Button>
@@ -145,10 +149,11 @@ export default function Page() {
                     </div>
                 </CodePreview>
 
-                <h3>Center</h3>
+                <h3>Horizontal Center</h3>
+
                 <CodePreview code={''}>
                     <div className="h-64 bg-slate-100">
-                        <Container gap={4} valign="center">
+                        <Container gap={4} direction="horizontal" valign="center">
                             <Button>Button A</Button>
                             <Button>Button B</Button>
                             <Button>Button C</Button>
@@ -156,17 +161,95 @@ export default function Page() {
                     </div>
                 </CodePreview>
 
-                <h3>Bottom</h3>
+                <h3>Horizontal Bottom</h3>
                 <CodePreview code={''}>
                     <div className="h-64 bg-slate-100">
-                        <Container gap={4} valign="bottom">
+                        <Container gap={4} direction="horizontal" valign="bottom">
                             <Button>Button A</Button>
                             <Button>Button B</Button>
                             <Button>Button C</Button>
                         </Container>
                     </div>
                 </CodePreview>
-            </div> */}
+
+                <h3>Vertical Top</h3>
+
+                <CodePreview code={''}>
+                    <div className="h-64 bg-slate-100">
+                        <Container gap={4} direction="vertical" valign="left">
+                            <Button>Button A</Button>
+                            <Button>Button B</Button>
+                            <Button>Button C</Button>
+                        </Container>
+                    </div>
+                </CodePreview>
+
+                <h3>Vertical Center</h3>
+
+                <CodePreview code={''}>
+                    <div className="h-64 bg-slate-100">
+                        <Container gap={4} direction="vertical" valign="center">
+                            <Button>Button A</Button>
+                            <Button>Button B</Button>
+                            <Button>Button C</Button>
+                        </Container>
+                    </div>
+                </CodePreview>
+
+                <h3>Vertical Bottom</h3>
+                <CodePreview code={''}>
+                    <div className="h-64 bg-slate-100">
+                        <Container gap={4} direction="vertical" valign="bottom">
+                            <Button>Button A</Button>
+                            <Button>Button B</Button>
+                            <Button>Button C</Button>
+                        </Container>
+                    </div>
+                </CodePreview>
+            </div>
+
+            {/* Align Valign */}
+            <div id="align-valign">
+                <h2>Align Valign</h2>
+
+                <p>
+                    Of course, it is also possible to use a combination of <code>align</code> and{' '}
+                    <code>valign</code>.
+                </p>
+
+                <h3>Vertical Right Top</h3>
+                <CodePreview code={''}>
+                    <div className="h-64 bg-slate-100">
+                        <Container gap={4} direction="vertical" align="right" valign="top">
+                            <Button>Button A</Button>
+                            <Button>Button B</Button>
+                            <Button>Button C</Button>
+                        </Container>
+                    </div>
+                </CodePreview>
+
+                <h3>Vertical Right Center</h3>
+                <CodePreview code={''}>
+                    <div className="h-64 bg-slate-100">
+                        <Container gap={4} direction="vertical" align="right" valign="center">
+                            <Button>Button A</Button>
+                            <Button>Button B</Button>
+                            <Button>Button C</Button>
+                        </Container>
+                    </div>
+                </CodePreview>
+
+                <h3>Vertical Right Bottom</h3>
+                <CodePreview code={''}>
+                    <div className="h-64 bg-slate-100">
+                        <Container gap={4} direction="vertical" align="right" valign="bottom">
+                            <Button>Button A</Button>
+                            <Button>Button B</Button>
+                            <Button>Button C</Button>
+                        </Container>
+                    </div>
+                </CodePreview>
+            </div>
         </ComponentPage>
     )
 }
