@@ -6,10 +6,11 @@
  * Kazuhiro Kotsutsumi<kotsutsumi@gmail.com>
  */
 'use client'
-
-import { X } from 'lucide-react'
+import { ChevronUp, ChevronDown, X } from 'lucide-react'
 import React from 'react'
 import { forwardRef, HTMLAttributes } from 'react'
+
+import { Collapsible } from '@ark-ui/react'
 
 import cn from '../lib/cn'
 import { Button } from './button'
@@ -29,6 +30,7 @@ export interface PanelProps extends HTMLAttributes<HTMLDivElement>, ContainerPro
     title?: string
     closeable?: boolean
     closeFn?: () => void
+    collapsible?: boolean
 }
 
 const Panel = forwardRef<HTMLDivElement, PanelProps>(
@@ -40,6 +42,7 @@ const Panel = forwardRef<HTMLDivElement, PanelProps>(
             title = undefined,
             closeable = false,
             closeFn = () => {},
+            collapsible = false,
             ...props
         },
         ref
@@ -55,12 +58,24 @@ const Panel = forwardRef<HTMLDivElement, PanelProps>(
 
         const padding = layout === 'container' ? 'p-4' : 'p-0'
 
+        const [collapsed, setCollapsed] = React.useState(false)
+
         return (
             <div className="border">
                 {title && (
                     <div className="border-b bg-gray-200 p-2 h-10 text-base font-bold text-muted-foreground flex">
                         <div className="flex-1">{title}</div>
                         <div>
+                            {collapsible && (
+                                <Button
+                                    className="h-6 w-6 p-0"
+                                    onClick={() => {
+                                        setCollapsed(!collapsed)
+                                    }}
+                                >
+                                    {collapsed ? <ChevronUp /> : <ChevronDown />}
+                                </Button>
+                            )}
                             {closeable && (
                                 <Button className="h-6 w-6 p-0" onClick={closeFn}>
                                     <X />
@@ -69,7 +84,17 @@ const Panel = forwardRef<HTMLDivElement, PanelProps>(
                         </div>
                     </div>
                 )}
-                <Renderer ref={ref} {...props} className={cn(padding, className)}>
+                <Renderer
+                    ref={ref}
+                    {...props}
+                    className={cn(
+                        padding,
+                        'animate-in',
+                        'fade-in',
+                        collapsed ? 'hidden' : 'block',
+                        className
+                    )}
+                >
                     {children}
                 </Renderer>
             </div>
