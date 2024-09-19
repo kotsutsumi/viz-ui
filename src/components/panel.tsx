@@ -7,6 +7,7 @@
  */
 'use client'
 
+import { X } from 'lucide-react'
 import React from 'react'
 import { forwardRef, HTMLAttributes } from 'react'
 
@@ -25,23 +26,53 @@ export enum PanelLayout {
 
 export interface PanelProps extends HTMLAttributes<HTMLDivElement>, ContainerProps {
     layout?: string
+    title?: string
+    closeable?: boolean
+    closeFn?: () => void
 }
 
 const Panel = forwardRef<HTMLDivElement, PanelProps>(
-    ({ className, children, layout = 'container', ...props }, ref) => {
+    (
+        {
+            className,
+            children,
+            layout = 'container',
+            title = undefined,
+            closeable = false,
+            closeFn = () => {},
+            ...props
+        },
+        ref
+    ) => {
         const childElements = React.Children.toArray(children)
 
         for (const child of childElements) {
-            console.log((child as any).type === Button)
-            console.log((child as any).props.region)
+            // console.log((child as any).type === Button)
+            // console.log((child as any).props.region)
         }
 
         const Renderer = layout === 'container' ? Container : 'div'
 
+        const padding = layout === 'container' ? 'p-4' : 'p-0'
+
         return (
-            <Renderer ref={ref} {...props} className={cn(className)}>
-                {children}
-            </Renderer>
+            <div className="border">
+                {title && (
+                    <div className="border-b bg-gray-200 p-2 h-10 text-base font-bold text-muted-foreground flex">
+                        <div className="flex-1">{title}</div>
+                        <div>
+                            {closeable && (
+                                <Button className="h-6 w-6 p-0" onClick={closeFn}>
+                                    <X />
+                                </Button>
+                            )}
+                        </div>
+                    </div>
+                )}
+                <Renderer ref={ref} {...props} className={cn(padding, className)}>
+                    {children}
+                </Renderer>
+            </div>
         )
     }
 )
