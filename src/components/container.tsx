@@ -5,6 +5,8 @@
  *
  * Kazuhiro Kotsutsumi<kotsutsumi@gmail.com>
  */
+'use client'
+
 import React from 'react'
 import { forwardRef, HTMLAttributes } from 'react'
 
@@ -37,6 +39,7 @@ export interface ContainerProps extends HTMLAttributes<HTMLDivElement> {
 const Container = forwardRef<HTMLDivElement, ContainerProps>(
     (
         {
+            className,
             children,
             direction = Direction.Vertical,
             gap = 0,
@@ -90,20 +93,12 @@ const Container = forwardRef<HTMLDivElement, ContainerProps>(
             }
         }
 
-        // if (valign === Valign.Top) {
-        //     cls.push(`justify-start`)
-        // } else if (valign === Valign.Center) {
-        //     cls.push(`justify-center`)
-        // } else if (valign === Valign.Bottom) {
-        //     cls.push(`justify-end`)
-        // }
-
         if (gap > 0) {
             cls.push(`gap-${gap}`)
         }
 
         return (
-            <div ref={ref} {...props} className={cn(cls)}>
+            <div ref={ref} {...props} className={cn(cls, className)}>
                 {children}
             </div>
         )

@@ -12,6 +12,7 @@
     "@ark-ui/react": "^3.12.0",
     "lucide-react": "^0.441.0",
     "next": "14.2.12",
+    "prism-react-renderer": "^2.4.0",
     "react": "^18",
     "react-dom": "^18"
   },

@@ -5,6 +5,8 @@
  *
  * Kazuhiro Kotsutsumi<kotsutsumi@gmail.com>
  */
+'use client'
+
 import { ButtonHTMLAttributes, forwardRef, MutableRefObject, useRef, useState } from 'react'
 import React from 'react'
 import { tv, VariantProps } from 'tailwind-variants'
@@ -16,8 +18,7 @@ import cn from '../lib/cn'
 const buttonVariants = tv({
     base: `
         text-sm
-        self-start
-        inline-block
+        inline-flex
         font-medium
         items-center
         justify-center
@@ -103,7 +104,7 @@ export interface ButtonProps
     asChild?: boolean
     interval?: number
     delay?: number
-    onLongPress?: () => void
+    delayFn?: () => void
 }
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -115,6 +116,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             asChild = false,
             interval = undefined,
             delay = undefined,
+            delayFn = undefined,
             ...props
         },
         ref
@@ -158,8 +160,8 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         const startTimeout = () => {
             if (timeout.current === undefined) {
                 timeout.current = setTimeout(() => {
-                    if (props.onLongPress) {
-                        props.onLongPress()
+                    if (delayFn) {
+                        delayFn()
                     }
                 }, delay)
             }
@@ -286,6 +288,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
                     }),
                     effectedClassName
                 )}
+                asChild={asChild}
                 ref={ref}
                 onClick={onClick}
                 onMouseDown={onMouseDown}

@@ -4,7 +4,7 @@ export function ButtonDemo() {
     return (
         <Button
             delay={1000}
-            onLongPress={() => {
+            delayFn={() => {
                 console.log('Long Pressed!')
             }}
         >
