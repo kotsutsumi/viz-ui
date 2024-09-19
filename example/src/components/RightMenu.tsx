@@ -31,6 +31,7 @@ const RightMenu = function ({
                                         <ol
                                             role="list"
                                             className="mt-2 space-y-3 pl-5 text-slate-500 "
+                                            key={`right-menu-nested${nestedIndex}`}
                                         >
                                             <li>
                                                 <a

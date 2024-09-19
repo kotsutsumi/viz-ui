@@ -6,10 +6,6 @@ import { useEffect } from 'react'
 import { Tabs } from '@ark-ui/react'
 
 const CodePreview = function ({ children, code }: { children: React.ReactNode; code: string }) {
-    useEffect(() => {
-        Prism.highlightAll()
-    }, [])
-
     return (
         <div className="code-container">
             <Tabs.Root defaultValue="preview">

@@ -5,6 +5,8 @@
  *
  * Kazuhiro Kotsutsumi<kotsutsumi@gmail.com>
  */
+'use client'
+
 import React from 'react'
 import { forwardRef, HTMLAttributes } from 'react'
 
@@ -90,14 +92,6 @@ const Container = forwardRef<HTMLDivElement, ContainerProps>(
                 cls.push(`justify-end`)
             }
         }
-
-        // if (valign === Valign.Top) {
-        //     cls.push(`justify-start`)
-        // } else if (valign === Valign.Center) {
-        //     cls.push(`justify-center`)
-        // } else if (valign === Valign.Bottom) {
-        //     cls.push(`justify-end`)
-        // }
 
         if (gap > 0) {
             cls.push(`gap-${gap}`)

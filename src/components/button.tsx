@@ -5,6 +5,8 @@
  *
  * Kazuhiro Kotsutsumi<kotsutsumi@gmail.com>
  */
+'use client'
+
 import { ButtonHTMLAttributes, forwardRef, MutableRefObject, useRef, useState } from 'react'
 import React from 'react'
 import { tv, VariantProps } from 'tailwind-variants'
@@ -115,6 +117,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             asChild = false,
             interval = undefined,
             delay = undefined,
+            onLongPress = undefined,
             ...props
         },
         ref

@@ -1,6 +1,8 @@
 'use client'
 
 import { ArrowBigDownDash } from 'lucide-react'
+import Prism from 'prismjs'
+import { useEffect } from 'react'
 
 import { CodePreview } from '@/components/CodePreview'
 import { ComponentPage } from '@/components/ComponentPage'
@@ -103,6 +105,10 @@ const rightMenuItems = [
 ]
 
 export default function Page() {
+    useEffect(() => {
+        Prism.highlightAll()
+    }, [])
+
     return (
         <ComponentPage rightMenuItems={rightMenuItems}>
             {/* Description */}

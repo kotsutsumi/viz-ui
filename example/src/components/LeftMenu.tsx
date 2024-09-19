@@ -26,6 +26,10 @@ const items: { title: string; items?: { title: string; link: string }[] }[] = [
             {
                 title: 'Container',
                 link: '/components/container'
+            },
+            {
+                title: 'Panel',
+                link: '/components/panel'
             }
         ]
     }
@@ -51,7 +55,10 @@ const LeftMenu = function () {
                                     >
                                         {item.items?.map((nestedItem, nestedIndex) => {
                                             return (
-                                                <li className="relative">
+                                                <li
+                                                    className="relative"
+                                                    key={`left-menu-sub-${nestedIndex}`}
+                                                >
                                                     <a
                                                         className="block w-full pl-3.5 before:pointer-events-none before:absolute before:-left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full text-slate-500 before:hidden before:bg-slate-300 hover:text-slate-600 hover:before:block dark:text-slate-400 dark:before:bg-slate-700 dark:hover:text-slate-300"
                                                         href={nestedItem.link}

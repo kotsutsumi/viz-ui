@@ -1,6 +1,8 @@
 'use client'
 
+import Prism from 'prismjs'
 import { title } from 'process'
+import { useEffect } from 'react'
 
 import { ComponentPage } from '@/components/ComponentPage'
 import { CodePreview } from '@/components/CodePreview'
@@ -15,6 +17,10 @@ const rightMenuItems = [
 ]
 
 export default function Page() {
+    useEffect(() => {
+        Prism.highlightAll()
+    }, [])
+
     return (
         <ComponentPage rightMenuItems={rightMenuItems}>
             {/* Description */}
