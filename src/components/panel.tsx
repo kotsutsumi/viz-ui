@@ -52,9 +52,10 @@ const Panel = forwardRef<HTMLDivElement, PanelProps>(
         for (const child of childElements) {
             // console.log((child as any).type === Button)
             // console.log((child as any).props.region)
+            // ;(child as any).props.collapsible = true
         }
 
-        const Renderer = layout === 'container' ? Container : 'div'
+        const Renderer = Container
 
         const padding = layout === 'container' ? 'p-4' : 'p-0'
 
@@ -87,13 +88,7 @@ const Panel = forwardRef<HTMLDivElement, PanelProps>(
                 <Renderer
                     ref={ref}
                     {...props}
-                    className={cn(
-                        padding,
-                        'animate-in',
-                        'fade-in',
-                        collapsed ? 'hidden' : 'block',
-                        className
-                    )}
+                    className={cn(padding, collapsed ? 'hidden' : 'block', className)}
                 >
                     {children}
                 </Renderer>

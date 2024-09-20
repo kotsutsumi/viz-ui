@@ -73,6 +73,20 @@ export default function Page() {
                     </Panel>
                 </CodePreview>
             </div>
+
+            {/* Layouts */}
+            <div id="layouts">
+                <h2>Layouts</h2>
+
+                <h3>Accordion</h3>
+                <CodePreview codeBlock={code_collapsible}>
+                    <Panel title="Accordion Layout Panel" layout="accordion">
+                        <Panel title="Panel 1">Panel 1 Content</Panel>
+                        <Panel title="Panel 2">Panel 2 Content</Panel>
+                        <Panel title="Panel 3">Panel 3 Content</Panel>
+                    </Panel>
+                </CodePreview>
+            </div>
         </ComponentPage>
     )
 }
