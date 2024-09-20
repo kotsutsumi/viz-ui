@@ -44,14 +44,14 @@ const LeftMenu = function () {
                         {items.map((item, index) => {
                             return (
                                 <li key={`left-menu-${index}`}>
-                                    <h2 className="font-display font-medium text-slate-900 ">
+                                    <h2 className="font-medium font-display text-slate-900 ">
                                         {item.title}
                                     </h2>
 
                                     {/* Nested list */}
                                     <ul
                                         role="list"
-                                        className="mt-2 space-y-2 border-l-2 border-slate-100 lg:mt-4 lg:space-y-4 lg:border-slate-200"
+                                        className="mt-2 border-l-2 space-y-2 border-slate-100 lg:mt-4 lg:space-y-4 lg:border-slate-200"
                                     >
                                         {item.items?.map((nestedItem, nestedIndex) => {
                                             return (

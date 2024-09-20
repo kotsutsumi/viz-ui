@@ -22,7 +22,7 @@ export default function Page() {
     return (
         <ComponentPage rightMenuItems={rightMenuItems}>
             {/* Description */}
-            <div id="description">
+            <div id="description" className="">
                 <h1>Panel</h1>
                 <p>Provides panel functionality that encompasses components.</p>
                 <p>

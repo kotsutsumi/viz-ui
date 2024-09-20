@@ -64,12 +64,12 @@ const Panel = forwardRef<HTMLDivElement, PanelProps>(
         return (
             <div className="border">
                 {title && (
-                    <div className="border-b bg-gray-200 p-2 h-10 text-base font-bold text-muted-foreground flex">
+                    <div className="flex h-10 p-2 text-base font-bold bg-gray-200 border-b text-muted-foreground">
                         <div className="flex-1">{title}</div>
                         <div>
                             {collapsible && (
                                 <Button
-                                    className="h-6 w-6 p-0"
+                                    className="w-6 h-6 p-0"
                                     onClick={() => {
                                         setCollapsed(!collapsed)
                                     }}
@@ -78,7 +78,7 @@ const Panel = forwardRef<HTMLDivElement, PanelProps>(
                                 </Button>
                             )}
                             {closeable && (
-                                <Button className="h-6 w-6 p-0" onClick={closeFn}>
+                                <Button className="w-6 h-6 p-0" onClick={closeFn}>
                                     <X />
                                 </Button>
                             )}

@@ -10,12 +10,12 @@ const RightMenu = function ({
             <nav aria-labelledby="on-this-page-title" className="w-56">
                 <h2
                     id="on-this-page-title"
-                    className="font-display text-sm font-medium text-slate-900 "
+                    className="text-sm font-medium font-display text-slate-900 "
                 >
                     On this page
                 </h2>
 
-                <ol role="list" className="mt-4 space-y-3 text-sm">
+                <ol role="list" className="mt-4 text-sm space-y-3">
                     {items.map((item, index) => {
                         return (
                             <li key={`right-menu-${index}`}>
@@ -30,7 +30,7 @@ const RightMenu = function ({
                                     return (
                                         <ol
                                             role="list"
-                                            className="mt-2 space-y-3 pl-5 text-slate-500 "
+                                            className="pl-5 mt-2 space-y-3 text-slate-500 "
                                             key={`right-menu-nested${nestedIndex}`}
                                         >
                                             <li>

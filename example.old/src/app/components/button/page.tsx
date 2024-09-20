@@ -291,25 +291,25 @@ export default function Page() {
 
                 <table className="table-auto">
                     <thead>
-                        <tr className="bg-gray-100 text-sm ">
-                            <th className="px-4 py-2 border-l border-t border-b text-gray-600">
+                        <tr className="text-sm bg-gray-100 ">
+                            <th className="px-4 py-2 text-gray-600 border-t border-b border-l">
                                 Props
                             </th>
-                            <th className="px-4 py-2 border-t border-b text-gray-600">Default</th>
-                            <th className="px-4 py-2 border-t border-r border-b text-gray-600">
+                            <th className="px-4 py-2 text-gray-600 border-t border-b">Default</th>
+                            <th className="px-4 py-2 text-gray-600 border-t border-b border-r">
                                 Type
                             </th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr className="text-sm">
-                            <td className="px-4 py-2 border-l border-t border-b">
+                            <td className="px-4 py-2 border-t border-b border-l">
                                 <code className="text-primary">variants</code>
                             </td>
                             <td className="px-4 py-2 border-t border-b">
                                 <code className="text-gray-600">'default'</code>
                             </td>
-                            <td className="px-4 py-2 border-t border-r border-b">
+                            <td className="px-4 py-2 border-t border-b border-r">
                                 <code className="text-gray-600">
                                     'default' | 'primary' | 'secondary' | 'destructive' | 'outline'
                                     | 'ghost' | 'link'
